@@ -18,7 +18,7 @@ Future<User?> createAccount(String companyName,String username,String userPost, 
       user.updateDisplayName(username);
 
       await _firestore.collection('users').doc(_auth.currentUser!.uid).set({
-        "uid": _auth.currentUser!.uid,
+        "userId": _auth.currentUser!.uid,
         "username": username,
         "email": email,
         "userType": userType,

@@ -226,10 +226,10 @@ class _AddTaskState extends State<AddTask> {
                                       title: Text(data.docs[index]['userPost'],style: TextStyle(
                                           fontWeight: FontWeight.w700
                                       ),),
-                                        subtitle: Text(data.docs[index]['username']),
-                                        leading: CircleAvatar(
-                                          child: Icon(Icons.account_circle_rounded),
-                                        ),
+                                      subtitle: Text(data.docs[index]['username']),
+                                      leading: CircleAvatar(
+                                        child: Icon(Icons.account_circle_rounded),
+                                      ),
                                       onTap: (){
                                         createTask(object, details,date,data.docs[index]['userId']);
                                         Navigator.push(

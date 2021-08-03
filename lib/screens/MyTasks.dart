@@ -42,7 +42,7 @@ class _MyTasksState extends State<MyTasks> {
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: Card(
                         shape: Border.all(color: Colors.black, width: 0.6),
-                        elevation: 2,
+                        elevation: 0,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(

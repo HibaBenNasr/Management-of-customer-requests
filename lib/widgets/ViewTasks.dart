@@ -18,7 +18,7 @@ class _ViewTasksState extends State<ViewTasks> {
   TextEditingController objectController = new TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final Stream<QuerySnapshot> rec=FirebaseFirestore.instance.collection("tasks").orderBy("date").snapshots();
+  final Stream<QuerySnapshot> rec=FirebaseFirestore.instance.collection("tasks").orderBy("date",descending: true).snapshots();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +43,7 @@ class _ViewTasksState extends State<ViewTasks> {
                     padding: const EdgeInsets.only(bottom: 10.0),
                     child: Card(
                       shape: Border.all(color: Colors.black, width: 0.6),
-                      elevation: 2,
+                      elevation: 0,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
