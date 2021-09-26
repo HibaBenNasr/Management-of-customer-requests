@@ -31,7 +31,7 @@ class _ListUsersState extends State<ListUsers> {
     final Stream<QuerySnapshot> users=FirebaseFirestore.instance.collection("users").where("userType", isEqualTo: widget.type).snapshots();
     return Scaffold(
       drawer: MainDrawer(),
-      appBar: CustomAppBar(appBarTitle,true),
+      appBar: customAppBar(appBarTitle,true),
       body: StreamBuilder<QuerySnapshot>(
         stream: users ,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot){

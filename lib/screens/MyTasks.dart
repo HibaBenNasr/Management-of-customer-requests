@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project_for_pole/widgets/AppBar.dart';
+import 'package:project_for_pole/widgets/CommentsPage.dart';
 import 'package:project_for_pole/widgets/Drawer.dart';
 import 'package:project_for_pole/widgets/Methodes.dart';
 
@@ -15,12 +16,12 @@ class MyTasks extends StatefulWidget {
 class _MyTasksState extends State<MyTasks> {
   FirebaseAuth _auth= FirebaseAuth.instance;
 
-  final Stream<QuerySnapshot> tasks=FirebaseFirestore.instance.collection("tasks").orderBy("date").snapshots();
+  final Stream<QuerySnapshot> tasks=FirebaseFirestore.instance.collection("tasks").orderBy("date",descending: true).snapshots();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar("Mes Tâches",true),
+        appBar: customAppBar("Mes Tâches",true),
     drawer: MainDrawer(),
        body: StreamBuilder<QuerySnapshot>(
           stream: tasks ,
@@ -83,6 +84,31 @@ class _MyTasksState extends State<MyTasks> {
                               Text(data.docs[index]['done']?"terminé": "non terminé",style: TextStyle(
                                   fontSize: 14
                               ),),
+                              Divider(color: Colors.grey.withOpacity(0.5),),
+                              Row(
+                                children: [
+                                  Expanded(child: InkWell(
+                                    child: Padding(
+                                      padding: EdgeInsets.only(bottom: 5),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        //  crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.comment, ),
+                                          SizedBox(width: 4.0,),
+                                          Text("Commentaires("+data.docs[index]['commentNum'].toString()+")", textAlign: TextAlign.center,),
+                                        ],
+                                      ),
+                                    ),
+                                    onTap: (){
+                                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                                        //   return CommentsPage(recId: data.docs[index].id);
+                                        return CommentPage(postId: data.docs[index].id,commentType: "tasks",);
+                                      }));
+                                    },
+                                  ))
+                                ],
+                              ),
                             ],
                           ),
                         ),

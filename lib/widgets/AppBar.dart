@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-PreferredSize CustomAppBar(text,bool withDrawer){
+PreferredSize customAppBar(text,bool withDrawer){
   return PreferredSize(
     preferredSize: Size.fromHeight(100),
     child: AppBar(

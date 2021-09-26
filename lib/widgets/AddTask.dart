@@ -28,7 +28,7 @@ class _AddTaskState extends State<AddTask> {
       onTap: ()=>FocusScope.of(context).unfocus(),
       child: Scaffold(
         drawer: MainDrawer(),
-        appBar: CustomAppBar("Assigner des tâches",true),
+        appBar: customAppBar("Ajouter une tâche",true),
         body: isLoading? Center(
           child: Container(
             height: size.height/20,
@@ -42,15 +42,15 @@ class _AddTaskState extends State<AddTask> {
               SizedBox(
                 height: 10,
               ),
-              Text(
-                "Ajouter une tâche",
-                style: TextStyle(
-                  letterSpacing: 2.0,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              // Text(
+              //   "Ajouter une tâche",
+              //   style: TextStyle(
+              //     letterSpacing: 2.0,
+              //     fontSize: 32,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              //   textAlign: TextAlign.center,
+              // ),
               Container(
                 margin: EdgeInsets.only(bottom: 24, right: 24, left: 24),
                 child: Form(
@@ -102,7 +102,7 @@ class _AddTaskState extends State<AddTask> {
 
   Widget _builObject() {
     return TextFormField(
-      decoration: inputDecoration("Titre", Icon(Icons.title)),
+      decoration: inputDecoration("Titre", Icon(Icons.more_horiz)),
       validator: (String? value) {
         if (value!.isEmpty) {
           return 'Titre obligatoire';
@@ -120,7 +120,7 @@ class _AddTaskState extends State<AddTask> {
       maxLines: 7,
       decoration: InputDecoration(
         labelText: "Détails",
-        prefixIcon: Icon(Icons.speaker_notes),
+        prefixIcon: Icon(Icons.more_horiz),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(0.0),
           borderSide: BorderSide(

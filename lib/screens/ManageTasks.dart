@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_for_pole/widgets/AppBar.dart';
-import 'package:project_for_pole/widgets/Drawer.dart';
-import 'package:project_for_pole/widgets/ViewDeclaration.dart';
+import 'package:project_for_pole/widgets/ViewClientsDeclarations.dart';
 import 'package:project_for_pole/widgets/ViewTasks.dart';
 
 import '../widgets/AddTask.dart';
@@ -15,7 +13,7 @@ class ManageTasks extends StatefulWidget {
 class _ManageTasksState extends State<ManageTasks> {
   int _selectedIndex = 0;
   final tabs= [
-    ViewDelaration(),
+    ViewClientsDeclarations(),
     ViewTasks(),
     AddTask(),
   ];

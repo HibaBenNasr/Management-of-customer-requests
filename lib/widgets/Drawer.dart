@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project_for_pole/screens/Declaration.dart';
 import 'package:project_for_pole/screens/HomeScreen.dart';
 import 'package:project_for_pole/screens/ManageTasks.dart';
 import 'package:project_for_pole/screens/MyTasks.dart';
 import 'package:project_for_pole/screens/UserProfile.dart';
 import 'package:project_for_pole/screens/accounts.dart';
+import 'package:project_for_pole/screens/ViewDeclarations.dart';
 import 'Methodes.dart';
 
 class MainDrawer extends StatefulWidget {
@@ -19,8 +19,8 @@ class MainDrawer extends StatefulWidget {
 
 class _MainDrawerState extends State<MainDrawer> {
 
-  String userType="..";
-  String username="..";
+  String userType=" ";
+  String username=" ";
   String email="";
   Future getData() async {
     User? user = FirebaseAuth.instance.currentUser;
@@ -77,7 +77,7 @@ class _MainDrawerState extends State<MainDrawer> {
                   fontSize: 20,fontWeight: FontWeight.bold
                 ),
                 ),
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => Declaration())),
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ViewDeclarations())),
               ),
             ]else if ( (userType=="employe")||(userType=="chef"))...[
               ListTile(

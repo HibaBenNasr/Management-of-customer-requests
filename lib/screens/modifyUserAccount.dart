@@ -50,7 +50,7 @@ class _ModifyUserAccountState extends State<ModifyUserAccount> {
     return GestureDetector(
       onTap: ()=>FocusScope.of(context).unfocus(),
       child: Scaffold(
-        appBar: CustomAppBar("Modifier profil",false),
+        appBar: customAppBar("Modifier profil",false),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.only(bottom: 20,left: 20,right: 20  ),
